@@ -11,7 +11,11 @@ Fine-tuning serves as the surgical specialization phase: by training the network
 
 The technical framework governing model weight adaptation has transitioned from destructive full-parameter overwrites to parameter-efficient adapters, reference-free direct preference objectives, and modern reinforcement-learned thinking loops.
 
+
+```mermaid
 [Full Parameter Fine-Tuning (2018)] ───> [Parameter-Efficient LoRA (2021)] ───> [Direct Preference Optimization (2023)] ───> [Native System 2 RL Scaling (Present)](High VRAM Overheads / Weight Drift)       (Frozen Backbones / Low-Rank Matrix Tensors)    (Bypassing Separate Critic/Reward Networks)     (Internalized Error-Correction Loops)
+```
+
 *   **The Full Parameter Overwrite Era (BERT / Early Transformers, ~2018–2021)**
     *   *Concept:* The core foundational baseline [INDEX: 1]. Following pre-training, models were adapted by duplicating the entire neural network graph across a distributed cluster, computing backpropagation errors over a target dataset, and updating *100% of the model parameters* simultaneously [INDEX: 1].
     *   *Limitation:* Catastrophically memory-bandwidth bound and prone to **Catastrophic Forgetting**. Modifying all weights destroyed the model's universal, zero-shot capabilities to optimize for a single, narrow feature. It also demanded immense VRAM overhead, requiring full-model checkpoint storage for every independent downstream corporate task.
@@ -49,7 +53,11 @@ Fine-Tuning methodologies are strictly categorized based on the specific paramet
 
 To specialize foundation parameters smoothly without triggering resource allocation stalls, enterprise pipelines orchestrate a multi-stage memory-sharded compilation loop [INDEX: 22].
 
+
+```mermaid
 Fully Sharded Data Parallel (FSDP) SFT Loop[Input Instruction Shard] ───> [All-Gather Low-Rank Adapter Matrices] ───> [Compute Causal Forward Pass Math]│▼[Update Local LoRA Slopes] <── [Reduce-Scatter Local Gradients] <── [Evict Adapter Parameters from VRAM]
+```
+
 *   **Fully Sharded Data Parallelism (FSDP Tuning Checkpoints)**
     *   *Profile:* Slashes cluster VRAM overheads [INDEX: 22]. During large-scale fine-tuning runs, instead of replicating identical optimizer states and gradients across all distributed processes, FSDP shards parameters evenly across the entire parallel GPU array, dynamically reconstructing layer matrices via `All-Gather` primitives right before computation [INDEX: 22].
 *   **Dynamic Data Token-Length Batch Padding**
