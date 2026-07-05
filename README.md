@@ -35,17 +35,17 @@ The technical framework governing model weight adaptation has transitioned from 
 
 Fine-Tuning methodologies are strictly categorized based on the specific parameter routing boundaries and optimization constraints they enforce over the base network layers.
 
-### A. Supervised Fine-Tuning (SFT / Instruction Tuning)
-*   **Mechanism:** The classic entry-level post-training milestone. The model processes a highly curated dataset of instruction-response pairs (e.g., `Instruction: Translate this code to Python -> Response: [Clean Code]`), utilizing standard cross-entropy token prediction losses to align its conversational formatting syntax and persona.
+- ### A. Supervised Fine-Tuning (SFT / Instruction Tuning)
+	*   **Mechanism:** The classic entry-level post-training milestone. The model processes a highly curated dataset of instruction-response pairs (e.g., `Instruction: Translate this code to Python -> Response: [Clean Code]`), utilizing standard cross-entropy token prediction losses to align its conversational formatting syntax and persona.
 
-### B. Low-Rank Adaptation (LoRA / QLoRA)
-*   **Mechanism:** Freezes base parameters, routing input feature maps concurrently through an intrinsic low-rank bypass loop. **QLoRA** modernizes this by compressing the frozen base weights down into a highly dense **4-bit NormalFloat (NF4) quantization template** [INDEX: 16], letting engineers run fine-tuning loops over multi-billion parameter foundation architectures on single, consumer-grade GPUs [INDEX: 16].
+- ### B. Low-Rank Adaptation (LoRA / QLoRA)
+	*   **Mechanism:** Freezes base parameters, routing input feature maps concurrently through an intrinsic low-rank bypass loop. **QLoRA** modernizes this by compressing the frozen base weights down into a highly dense **4-bit NormalFloat (NF4) quantization template** [INDEX: 16], letting engineers run fine-tuning loops over multi-billion parameter foundation architectures on single, consumer-grade GPUs [INDEX: 16].
 
-### C. Prefix / Prompt Tuning
-*   **Mechanism:** Leaves the entire physical model weight matrix completely frozen, including attention gates. It prepends a set of small, continuous learnable continuous vector embeddings (virtual tokens) directly to the input context sequence. Backpropagation updates only these prefix vectors, letting the system learn custom tasks purely via prompt-space virtual conditioning.
+- ### C. Prefix / Prompt Tuning
+	*   **Mechanism:** Leaves the entire physical model weight matrix completely frozen, including attention gates. It prepends a set of small, continuous learnable continuous vector embeddings (virtual tokens) directly to the input context sequence. Backpropagation updates only these prefix vectors, letting the system learn custom tasks purely via prompt-space virtual conditioning.
 
-### D. Direct Preference Optimization (DPO Objective)
-*   **Mechanism:** Bypasses intermediate reward model network graphs [INDEX: 11]. It fine-tunes active model parameters directly using a reparameterized preference loss that measures log-likelihood ratio deltas between a chosen response ($y_w$) and a rejected response ($y_l$) natively [INDEX: 11].
+- ### D. Direct Preference Optimization (DPO Objective)
+	*   **Mechanism:** Bypasses intermediate reward model network graphs [INDEX: 11]. It fine-tunes active model parameters directly using a reparameterized preference loss that measures log-likelihood ratio deltas between a chosen response ($y_w$) and a rejected response ($y_l$) natively [INDEX: 11].
 
 ---
 
