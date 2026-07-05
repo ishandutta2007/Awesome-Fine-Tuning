@@ -13,7 +13,11 @@ The technical framework governing model weight adaptation has transitioned from 
 
 
 ```mermaid
-[Full Parameter Fine-Tuning (2018)] ───> [Parameter-Efficient LoRA (2021)] ───> [Direct Preference Optimization (2023)] ───> [Native System 2 RL Scaling (Present)](High VRAM Overheads / Weight Drift)       (Frozen Backbones / Low-Rank Matrix Tensors)    (Bypassing Separate Critic/Reward Networks)     (Internalized Error-Correction Loops)
+flowchart LR
+    A["Full Fine-Tuning (2018)<br/>(Update All Model Parameters)"]
+    --> B["Parameter-Efficient Fine-Tuning (LoRA, 2021)<br/>(Frozen Backbone + Low-Rank Adapters)"]
+    --> C["Direct Preference Optimization (2023)<br/>(Direct Preference-Based Alignment)"]
+    --> D["Reasoning-Oriented RL Scaling (Present)<br/>(Inference-Time Deliberation & Reinforcement Learning)"]
 ```
 
 *   **The Full Parameter Overwrite Era (BERT / Early Transformers, ~2018–2021)**
@@ -55,7 +59,20 @@ To specialize foundation parameters smoothly without triggering resource allocat
 
 
 ```mermaid
-Fully Sharded Data Parallel (FSDP) SFT Loop[Input Instruction Shard] ───> [All-Gather Low-Rank Adapter Matrices] ───> [Compute Causal Forward Pass Math]│▼[Update Local LoRA Slopes] <── [Reduce-Scatter Local Gradients] <── [Evict Adapter Parameters from VRAM]
+flowchart TB
+
+A["Input Instruction Shard"]
+--> B["All-Gather Sharded LoRA Parameters"]
+
+B --> C["Forward Pass"]
+
+C --> D["Backward Pass"]
+
+D --> E["Reduce-Scatter Gradients"]
+
+E --> F["Optimizer Update (LoRA Only)"]
+
+F --> G["Release / Evict Sharded Parameters"]
 ```
 
 *   **Fully Sharded Data Parallelism (FSDP Tuning Checkpoints)**
