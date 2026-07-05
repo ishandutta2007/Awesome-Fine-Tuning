@@ -1,5 +1,9 @@
-# Awesome-Fine-Tuning
-## Fine-Tuning in AI: History, Progression, Variants, & Applications
+<div align="center">
+  <img src="assets/banner.svg" alt="Awesome Fine-Tuning Banner" width="100%" />
+</div>
+
+# 🌟 Awesome-Fine-Tuning 🚀
+## 🧠 Fine-Tuning in AI: History, Progression, Variants, & Applications
 
 **Fine-Tuning** is a hardware-aware optimization and post-training alignment paradigm in artificial intelligence that adapts a pre-trained foundation model to excel at specialized downstream tasks, domain-specific contexts, or explicit safety guardrails [INDEX: 11, 16]. In modern deep learning pipelines, models first undergo massive, self-supervised **Pre-training**, where they ingest multi-trillion token datasets or image matrices to build broad, raw statistical representations of language, vision, or logic [INDEX: 1, 10, 15]. 
 
@@ -7,7 +11,7 @@ Fine-tuning serves as the surgical specialization phase: by training the network
 
 ---
 
-## 1. The Macro Chronological Evolution
+## ⏳ 1. The Macro Chronological Evolution
 
 The technical framework governing model weight adaptation has transitioned from destructive full-parameter overwrites to parameter-efficient adapters, reference-free direct preference objectives, and modern reinforcement-learned thinking loops.
 
@@ -29,7 +33,7 @@ flowchart LR
 
 ---
 
-## 2. Core Functional & Algorithmic Variants
+## ⚙️ 2. Core Functional & Algorithmic Variants
 
 Fine-Tuning methodologies are strictly categorized based on the specific parameter routing boundaries and optimization constraints they enforce over the base network layers.
 
@@ -42,7 +46,7 @@ Fine-Tuning methodologies are strictly categorized based on the specific paramet
 
 ---
 
-## 3. The Distributed Post-Training Fine-Tuning Matrix
+## 🌐 3. The Distributed Post-Training Fine-Tuning Matrix
 
 To specialize foundation parameters smoothly without triggering resource allocation stalls, enterprise pipelines orchestrate a multi-stage memory-sharded compilation loop [INDEX: 22].
 
@@ -71,7 +75,7 @@ F --> G["Release / Evict Sharded Parameters"]
 
 ---
 
-## 4. Production Engineering Challenges & Mitigations
+## 🛡️ 4. Production Engineering Challenges & Mitigations
 
 Deploying and scaling complex fine-tuning pipelines across commercial high-performance computing setups introduces critical model drift vulnerabilities and data constraints.
 
@@ -82,7 +86,7 @@ Deploying and scaling complex fine-tuning pipelines across commercial high-perfo
 
 ---
 
-## 5. Frontier Real-World AI Industrial Applications
+## 🏭 5. Frontier Real-World AI Industrial Applications
 
 | Application Area | Application Details | Year | Paper Link |
 | :--- | :--- | :--- | :--- |
@@ -92,7 +96,7 @@ Deploying and scaling complex fine-tuning pipelines across commercial high-perfo
 
 ---
 
-## References
+## 📚 References
 1. Vaswani, A., et al. (2017). Attention is all you need: Scalable foundational transformer matrix blocks. *Advances in Neural Information Processing Systems (NeurIPS)* [INDEX: 1].
 2. Devlin, J., et al. (2018). BERT: Pre-training of deep bidirectional transformers for language understanding. *arXiv preprint arXiv:1810.04805* [INDEX: 1].
 3. Hu, E. J., et al. (2021). LoRA: Low-rank adaptation of large language models. *arXiv preprint arXiv:2106.09685* [INDEX: 11].
