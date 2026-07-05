@@ -3,6 +3,12 @@
 </div>
 
 # 🌟 Awesome-Fine-Tuning 🚀
+
+<div align="center">
+<a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+</div>
+
+<!-- SEO: Awesome Fine-Tuning is a curated list of history, progression, variants, and applications of Fine-Tuning in AI -->
 ## 🧠 Fine-Tuning in AI: History, Progression, Variants, & Applications
 
 **Fine-Tuning** is a hardware-aware optimization and post-training alignment paradigm in artificial intelligence that adapts a pre-trained foundation model to excel at specialized downstream tasks, domain-specific contexts, or explicit safety guardrails [INDEX: 11, 16]. In modern deep learning pipelines, models first undergo massive, self-supervised **Pre-training**, where they ingest multi-trillion token datasets or image matrices to build broad, raw statistical representations of language, vision, or logic [INDEX: 1, 10, 15]. 
