@@ -127,3 +127,14 @@ Before updating this documentation repository layout, let me know how you would 
 * I can generate a **Markdown matrix table** tracking the explicit hyperparameters ($\beta$, learning rates, rank constraints, target modules) utilized by leading enterprise systems to execute post-training alignment runs [INDEX: 11].
 * I can write a detailed technical explanation focusing on the **mathematical proof of Direct Preference Optimization reparameterization** and how it derives implicit reward scales straight from policy log probabilities [INDEX: 11].
 
+
+##  Star History
+<div align="center">
+<a href="https://www.star-history.com/?repos=ishandutta2007%2FAwesome-Fine-Tuning&type=date&legend=bottom-right">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Fine-Tuning&type=date&theme=dark&legend=bottom-right" />
+<source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Fine-Tuning&type=date&legend=bottom-right" />
+<img alt="Star History Chart" src="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Fine-Tuning&type=date&legend=bottom-right" />
+</picture>
+</a>
+</div>
